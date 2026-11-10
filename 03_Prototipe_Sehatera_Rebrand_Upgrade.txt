@@ -1,0 +1,324 @@
+================================================================================
+DETAIL IMPLEMENTASI PROTOTIPE (VERSI REBRAND + UPGRADE)
+Aplikasi "SEHATERA" — turunan orisinal, terinspirasi konsep human-centric
+health insurance (BUKAN salinan Medicillin)
+================================================================================
+
+CATATAN PENTING:
+- Semua nama di bawah adalah penamaan BARU bikinan sendiri untuk menggantikan
+  penamaan unik pada prototipe referensi. Tujuannya: ambil INSPIRASI konsep,
+  bukan menyalin.
+- Sebelum dipakai produksi/publik, cek dulu ketersediaan merek (trademark) &
+  domain untuk nama "Sehatera" dan turunannya. Ini saran, bukan jaminan bebas HKI.
+- Nama alternatif bila "Sehatera" tidak dipakai: Curalink, Medivia, Welnara, Vitala.
+
+
+================================================================================
+BAGIAN A — PETA PENGGANTIAN NAMA (OLD -> NEW)
+================================================================================
+
+  Elemen                         | Nama LAMA (referensi) | Nama BARU (punya kita)
+  -------------------------------|-----------------------|------------------------
+  Nama aplikasi                  | Medicillin            | Sehatera
+  Produk asuransi induk (lain)   | ZOHA                  | Auranusa
+  Paket premium/langganan        | Medicillin Care Plus+ | Sehatera Prima
+  Fitur telemedicine             | Medicall              | CareConnect
+  Tombol darurat                 | Panic button          | Sigap (SOS)
+  Fitur cek kesehatan            | My Health             | HealthPulse
+  Quick action benefit/partner   | Partner               | Perks
+  Scanner klaim (kamera+senter)  | (tanpa nama)          | SnapClaim
+  Mesin AI pengecek kualitas foto| CNN / IQA gate        | SnapCheck (AI vision)
+  Pendamping manusia (BARU)      | -                     | Care Ally
+  Persona pengguna demo          | Izzati / Daffa Izzati | Anindya Prameswari
+  Persona dokter demo            | Dr. Kevin Althaf      | Dr. Rangga Wicaksana
+
+  Tagline baru:
+    LAMA : "Your personalized health partner, powered by care."
+    BARU : "Sehatera — Tenang saat sehat, terjaga saat butuh."
+           (EN opsional: "Health made human. Care made simple.")
+
+
+================================================================================
+BAGIAN B — FILOSOFI UPGRADE (APA YANG NAIK KELAS DARI VERSI ASLI)
+================================================================================
+
+Referensi memposisikan "AI sebagai enabler, bukan pengganti manusia". Versi
+Sehatera MEMPERTAJAM tema itu jadi 3 prinsip yang terlihat nyata di UI:
+
+  P1. TRANSPARANSI AI (Explainable / Responsible AI)
+      - Setiap data yang diisi otomatis oleh AI diberi indikator keyakinan
+        (confidence): hijau = yakin, kuning = perlu dicek user.
+      - User selalu tahu mana yang mesin, mana yang manusia.
+
+  P2. JALUR MANUSIA SELALU TERLIHAT (Human-in-the-loop)
+      - Tombol "Talk to a Care Ally" (pendamping manusia) muncul di titik stres:
+        klaim ditolak, darurat, konsul sensitif. Empati tidak disembunyikan.
+
+  P3. TUTUP SEMUA GAP DARI PROTOTIPE LAMA
+      - Tambah layar yang dulu belum ada: state dokumen DITOLAK, konfirmasi &
+        pelacakan klaim real-time, isi tab Profile & Insurance, layar verifikasi.
+
+Ringkas: versi lama = fitur ada tapi banyak layar bolong. Versi Sehatera =
+alur lengkap end-to-end + lapisan empati & transparansi yang eksplisit.
+
+
+================================================================================
+BAGIAN C — DESIGN SYSTEM BARU
+================================================================================
+
+  - Brand mark      : monogram "S" (Sehatera) — beda dari monogram "Z".
+  - Warna primer    : TEAL/HIJAU-TOSCA (kesan tenang, sehat, terpercaya)
+                      -> membedakan dari referensi yang dominan merah/coral.
+  - Warna aksen     : AMBER hangat untuk aksi penting (empati/hangat).
+  - Warna status    : hijau=aman/terverifikasi, kuning=perlu cek, merah=darurat.
+  - Tipografi       : sans-serif membulat (ramah), skala teks bisa diperbesar.
+  - Ilustrasi       : keluarga + tenaga medis (bukan hanya pasien tunggal) untuk
+                      menegaskan tema "kelola untuk keluarga".
+  - Bottom nav (5)  : Home | Insurance | Care | Hospitals | Profile
+                      (referensi hanya 4; kita tambah tab "Care" untuk telemedicine
+                      & pendamping manusia agar empati punya rumah sendiri).
+
+
+================================================================================
+BAGIAN D — FLOW 1 (UPGRADE): PERSONALIZED ONBOARDING
+================================================================================
+
+  L1  Splash — monogram "S" Sehatera.
+  L2  Welcome — "Selamat datang di Sehatera!" / tagline baru.
+        Aksi: Login | Register | Sign in with Google.
+  L3  Greeting — "Halo, Anindya!" / "Yuk sesuaikan pengalamanmu."
+        Aksi: Mulai | Lewati dulu.
+  L4  Pertanyaan #1 (multi-select) — "Mau pakai Sehatera untuk apa?"
+        [ ] Ajukan & lacak klaim
+        [ ] Cari rumah sakit & klinik rekanan
+        [ ] Konsultasi dokter online
+        [ ] Pantau kesehatan sendiri
+  L5  Pertanyaan #2 (single-select) — "Kamu mengelola asuransi untuk siapa?"
+        ( ) Diri sendiri  ( ) Aku & pasangan  ( ) Anak-anak  ( ) Orang tua
+  L6  Pertanyaan #3 (multi-select) — "Fokus kesehatanmu saat ini?"
+        [ ] Kebugaran & pencegahan
+        [ ] Pemulihan pasca-sakit
+        [ ] Manajemen penyakit kronis
+        [ ] Ibu & anak
+
+  >>> UPGRADE di flow ini:
+  L7  (BARU) "Aktifkan proteksi ekstra" — pilih pengingat: cek berkala, jatuh
+        tempo premi, batas limit. (proactive care, bukan cuma reaktif)
+  L8  (BARU) "Kenalan dengan Care Ally-mu" — user diberi 1 pendamping manusia
+        (untuk akun keluarga/SME). Foto + nama + tombol chat.
+        -> menegaskan human touch sejak onboarding.
+
+
+================================================================================
+BAGIAN E — FLOW 2 (UPGRADE): HOME, GUIDED TOUR & SMART FAQ
+================================================================================
+
+  E.1  HOME
+    - Header: "Halo, Anindya!" + ikon bantuan (?) + notifikasi.
+    - Banner: "Diskon 20% — Sehatera Prima" + "Upgrade".
+    - Quick action (5, sebelumnya 4):
+        HealthPulse | Sigap (SOS) | CareConnect | Perks | (BARU) e-Card
+    - What's New: kartu artikel kesehatan + tanggal + "Baca selengkapnya".
+    - (BARU) Kartu status: "Klaim #A-102 sedang diproses — tahap: Verifikasi" ->
+      pelacakan cepat langsung dari Home.
+    - Floating: "Talk to a Care Ally" (chat manusia), selalu terlihat.
+    - Bottom nav 5 tab.
+
+  E.2  GUIDED TOUR (tooltip berpemandu)
+    - Tooltip 1 -> Sigap (SOS): kirim bantuan/ambulans darurat.
+    - Tooltip 2 -> CareConnect: video/chat dokter 24/7.
+    - Tooltip 3 -> Care Ally: pendamping manusia untuk pertanyaan coverage.
+    - Tooltip 4 -> Insurance: e-card, cek limit, ajukan klaim.
+    - (BARU) Tooltip 5 -> Aksesibilitas: perbesar teks / input suara.
+
+  E.3  SMART FAQ (Actionable + BARU: AI Assist)
+    - Search + kategori accordion: Semua | Klaim | Telemedicine | Polis & e-Card.
+      * Klaim:
+        - "Cara ajukan klaim rawat jalan?" -> tombol "Ajukan sekarang".
+        - "Cek status klaim terbaru?"      -> tombol "Lacak klaim".
+      * Telemedicine:
+        - "Cara konsultasi dokter online?" -> tombol "Buka CareConnect".
+    - (BARU) Bar "Tanya AI Sehatera": chatbot menjawab pertanyaan bebas, dengan
+      tombol eskalasi "Sambungkan ke Care Ally" bila butuh manusia.
+
+
+================================================================================
+BAGIAN F — FLOW 3 (UPGRADE): DIREKTORI RUMAH SAKIT & KLINIK
+================================================================================
+
+  - Search + toggle: Kota | Terdekat.
+  - Kartu: foto + tipe + jarak + telepon + (BARU) status "Cashless tersedia"
+    dan (BARU) rating + estimasi antrean.
+  - (BARU) Filter: spesialisasi, cashless/reimburse, buka 24 jam, IGD.
+  - (BARU) Tombol per-item: "Rute" (maps) + "Buat janji" langsung.
+  - Data rekanan bersifat sampel (bisa diisi RS mitra asli saat implementasi).
+
+
+================================================================================
+BAGIAN G — FLOW 4 (UPGRADE): SNAPCLAIM — KLAIM OTOMATIS AI
+================================================================================
+*** FITUR AI INTI — DINAIKKAN DENGAN STATE LENGKAP ***
+
+  G.1  Kamera SnapClaim
+    - Frame putus-putus + instruksi "Posisikan dokumen dalam bingkai".
+    - Kontrol: senter pintar (smart flashlight), galeri, shutter, retake.
+
+  G.2  SnapCheck memproses (BARU sebagai state eksplisit)
+    - Loader "SnapCheck sedang memeriksa kualitas dokumen..."
+
+  G.3  (BARU) STATE DITOLAK — sebelumnya TIDAK ADA di prototipe lama
+    - Jika buram/silau/terpotong: "Dokumen sulit terbaca (silau)".
+    - Panduan visual perbaikan + tombol "Foto ulang".
+    - Ini bukti nyata "screening gate" bekerja.
+
+  G.4  Form Auto-Fill + INDIKATOR KEYAKINAN (BARU)
+    - Data Pasien & Polis:
+        Nama Pasien       : Anindya Prameswari   [hijau: yakin]
+        Nomor Polis       : 1234554000321         [hijau: yakin]
+        Tanggal Lahir     : 01/05/2000            [kuning: cek ulang]
+        Nomor Telepon     : 0821xxxxxxx           [hijau: yakin]
+    - Info Fasilitas Kesehatan:
+        RS/Klinik         : (mis.) RS Rekanan     [hijau]
+        Dokter Penanggung : Dr. Rangga Wicaksana  [kuning: cek ulang]
+    - Detail Medis (accordion).
+    - Field kuning = AI kurang yakin -> minta user verifikasi. (Responsible AI)
+
+  G.5  (BARU) Verifikasi & Kirim
+    - Two-step verification (2FA) via OTP.
+    - Ringkasan klaim + tombol "Kirim".
+
+  G.6  (BARU) Konfirmasi & Pelacakan Real-time — sebelumnya TIDAK ADA
+    - Layar sukses: "Klaim #A-102 terkirim".
+    - Timeline status dengan penanda titik-manusia:
+        [Diterima] -> [SnapCheck lolos] -> [Diverifikasi Care Ally (manusia)]
+        -> [Disetujui] -> [Dibayarkan]
+    - Estimasi waktu tiap tahap + notifikasi push tiap perubahan status.
+    - Tombol "Hubungi Care Ally" jika ada pertanyaan.
+
+
+================================================================================
+BAGIAN H — FITUR BARU (UPGRADE) YANG TIDAK ADA DI PROTOTIPE ASLI
+================================================================================
+
+  H1. Care Ally (Pendamping Manusia)
+      - Satu advisor manusia per akun keluarga/SME; chat, jadwal panggilan,
+        eskalasi dari AI. Inti dari "human touch" yang terlihat.
+
+  H2. Tab "Care" khusus
+      - Rumah untuk CareConnect (telemedicine), Care Ally, riwayat konsultasi.
+
+  H3. Dashboard Keluarga / Tanggungan
+      - Kelola polis diri, pasangan, anak, orang tua dalam satu tampilan
+        (menjawab pertanyaan onboarding "mengelola untuk siapa").
+
+  H4. Portal Admin SME (companion B2B)
+      - Untuk HR perusahaan menengah: kelola peserta, lihat pemakaian agregat,
+        tambah/kurangi karyawan. Ini pembeda ke segmen SME.
+
+  H5. Dompet & e-Card Digital
+      - Kartu peserta digital, cek limit real-time, riwayat transaksi cashless.
+
+  H6. Proactive Care Nudges
+      - Pengingat cek berkala, jatuh tempo premi, sisa limit, vaksin/skrining.
+
+  H7. Aksesibilitas & Inklusi
+      - Perbesar teks, kontras tinggi, input suara, mode dwibahasa (ID/EN),
+        draft klaim offline (kirim saat online).
+
+  H8. Transparansi AI (SnapCheck confidence + audit)
+      - Indikator keyakinan per field + log "diperiksa AI / disetujui manusia".
+
+  H9. Riwayat & Ekspor
+      - Riwayat klaim/konsultasi, ekspor PDF untuk keperluan reimburse/kantor.
+
+
+================================================================================
+BAGIAN I — LAYAR BARU YANG MENGISI GAP (dari catatan prototipe lama)
+================================================================================
+
+  Gap lama                              -> Layar baru di Sehatera
+  --------------------------------------|-----------------------------------------
+  Tak ada state dokumen ditolak         -> G.3 State DITOLAK + panduan foto ulang
+  Tak ada konfirmasi/tracking klaim     -> G.6 Sukses + Timeline real-time
+  Tab Profile & Insurance kosong        -> Profile (data, e-card, keluarga),
+                                           Insurance (polis, limit, riwayat klaim)
+  2FA/verifikasi belum ada layar        -> G.5 Layar OTP + ringkasan
+  Empati hanya disebut di teks          -> Care Ally + tab Care + tombol manusia
+  Data persona campur                   -> Konsisten: Anindya Prameswari
+
+
+================================================================================
+BAGIAN J — INVENTARIS FITUR LENGKAP (CHECKLIST v2)
+================================================================================
+
+  Autentikasi & Onboarding
+    [x] Login / Register / Google SSO
+    [x] Personalisasi 3 pertanyaan
+    [+] Setup pengingat proaktif (BARU)
+    [+] Perkenalan Care Ally (BARU)
+
+  Home / Dashboard
+    [x] Greeting personal + banner Sehatera Prima
+    [x] Quick action: HealthPulse, Sigap, CareConnect, Perks
+    [+] Quick action e-Card (BARU)
+    [+] Kartu status klaim di Home (BARU)
+    [+] Floating "Talk to a Care Ally" (BARU)
+
+  Bantuan & Edukasi
+    [x] Guided tour (tooltip)
+    [x] Smart FAQ actionable
+    [+] Tanya AI Sehatera + eskalasi manusia (BARU)
+    [+] Tooltip aksesibilitas (BARU)
+
+  Provider
+    [x] Direktori Kota/Terdekat + jarak + telepon
+    [+] Filter, rating, cashless, buat janji, rute (BARU)
+
+  Klaim (SnapClaim)
+    [x] Kamera + senter pintar
+    [+] State pemeriksaan SnapCheck (BARU)
+    [+] State DITOLAK + panduan (BARU)
+    [x] Form auto-fill
+    [+] Indikator keyakinan per field (BARU)
+    [+] 2FA/OTP + ringkasan (BARU)
+    [+] Konfirmasi + timeline pelacakan real-time (BARU)
+
+  Layanan Kesehatan (tab Care - BARU)
+    [x] CareConnect (telemedicine)
+    [x] Sigap (SOS darurat)
+    [+] Care Ally (pendamping manusia) (BARU)
+    [+] Riwayat konsultasi (BARU)
+
+  Manajemen & B2B
+    [+] Dashboard keluarga/tanggungan (BARU)
+    [+] Portal admin SME (BARU)
+    [+] Dompet & e-Card digital (BARU)
+
+  Keamanan & Kepatuhan
+    [x] Two-step verification (kini ada layarnya)
+    [x] Kepatuhan standar keamanan info (ISO 27001-style)
+    [+] Log transparansi AI (BARU)
+
+  Keterangan: [x] setara/ada di referensi | [+] fitur atau layar BARU/UPGRADE.
+
+
+================================================================================
+BAGIAN K — RINGKASAN PEMBEDA ("INSPIRASI", BUKAN "CONTEK")
+================================================================================
+
+  1. Merek & identitas beda: Sehatera (teal) vs Medicillin (coral) — nama, logo,
+     warna, tagline, dan seluruh penamaan fitur diganti orisinal.
+  2. Struktur navigasi beda: 5 tab (nambah "Care") vs 4 tab.
+  3. Fitur inti dinaikkan: SnapClaim + SnapCheck punya state ditolak, indikator
+     keyakinan, verifikasi, dan pelacakan real-time — alur end-to-end lengkap.
+  4. Lapisan empati eksplisit: Care Ally + jalur manusia yang selalu terlihat,
+     bukan sekadar disebut di narasi.
+  5. Cakupan lebih luas: dashboard keluarga, portal SME (B2B), e-card, nudges
+     proaktif, aksesibilitas, transparansi AI.
+  -> Konsepnya sama-sama "human-centric AI health insurance", tapi eksekusi,
+     penamaan, alur, dan fiturnya adalah karya turunan sendiri.
+
+
+================================================================================
+                                  -- SELESAI --
+================================================================================
